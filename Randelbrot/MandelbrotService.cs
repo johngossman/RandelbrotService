@@ -2,33 +2,30 @@
 
 namespace Randelbrot
 {
-    public abstract class MandelbrotService
-    {
-        public abstract void RenderToBuffer(MandelbrotSet set, PixelBuffer buffer);
-    }
 
-    public class AdaptiveMandelbrotService : MandelbrotService
+    public class MandelbrotRenderer 
     {
         private IRenderTracer tracer = null;
+        Palette palette = new DefaultPalette();
 
-        public AdaptiveMandelbrotService()
+        public MandelbrotRenderer()
         {
         }
 
-        public AdaptiveMandelbrotService(IRenderTracer tracer)
+        public MandelbrotRenderer(IRenderTracer tracer)
         {
             this.tracer = tracer;
         }
 
-        public override void RenderToBuffer(MandelbrotSet set, PixelBuffer buffer)
+        public void RenderToBuffer(MandelbrotSet set, PixelBuffer buffer)
         {
             var renderer = new ContourRenderer(this.tracer);
-            Palette palette = new DefaultPalette();
+
             int maxCount = set.EstimateMaxCount();
             var bandMap = new LogarithmicBandMap(maxCount, 30.0);
 
             renderer.Render(buffer, set, bandMap, maxCount);
-            buffer.ApplyPalette(palette);
+            buffer.ApplyPalette(this.palette);
         }
     }
 }

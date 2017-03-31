@@ -12,16 +12,17 @@ namespace RandelbrotFunctions
 {
     public class ServeImage
     {
-
+        private static AutoBrotService autoBrotService = new AutoBrotService(new MandelbrotSet(-0.75, 0.0, 2.5), new DefaultBeautyEvaluator());
         public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceWriter log)
         {
             log.Info($"C# ServeImage triggered. RequestUri={req.RequestUri}");
 
-            MandelbrotSet set = new MandelbrotSet(-0.75, 0.0, 2.5);
-            AdaptiveMandelbrotService service = new AdaptiveMandelbrotService();
+            MandelbrotRenderer renderer = new MandelbrotRenderer();
+
+            MandelbrotSet set = autoBrotService.PopAndGenerate();
 
             PixelBuffer buffer = new PixelBuffer(400, 400);
-            service.RenderToBuffer(set, buffer);
+            renderer.RenderToBuffer(set, buffer);
 
             var utils = new ImageUtils();
 
