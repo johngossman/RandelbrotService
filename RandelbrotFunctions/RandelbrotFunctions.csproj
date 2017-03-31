@@ -108,6 +108,7 @@
     </Content>
     <Content Include="FetchImageFunc\function.json" />
     <Content Include="ServeImage\function.json" />
+    <Content Include="host.json" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
