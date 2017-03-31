@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace RandelbrotFunctions
 {
-    public class HelloHttpTrigger
+    public class TestFunc
     {
         public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceWriter log)
         {

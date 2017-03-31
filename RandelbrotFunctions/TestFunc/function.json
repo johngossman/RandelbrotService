@@ -1,7 +1,7 @@
 ﻿{
   "disabled": false,
   "scriptFile": "..\\bin\\RandelbrotFunctions.dll",
-  "entryPoint": "RandelbrotFunctions.HelloHttpTrigger.Run",
+  "entryPoint": "RandelbrotFunctions.TestFunc.Run",
   "bindings": [
     {
       "authLevel": "function",

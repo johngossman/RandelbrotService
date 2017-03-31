@@ -115,7 +115,7 @@
     <Content Include="packages.config">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="FetchImageFunc\function.json" />
+    <Content Include="TestFunc\function.json" />
     <Content Include="ServeImage\function.json" />
     <Content Include="host.json" />
     <None Include="Web.Debug.config">
@@ -129,7 +129,7 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FetchImageFunc\FetchImageFunc.cs" />
+    <Compile Include="TestFunc\TestFunc.cs" />
     <Compile Include="ServeImage\ServeImage.cs" />
     <Compile Include="ImageUtils.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
