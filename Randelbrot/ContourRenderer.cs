@@ -11,9 +11,7 @@ namespace Randelbrot
         public ContourRenderer(IRenderTracer tracer) : base(tracer) { }
 
         public int NumberOfContours { get; private set; }
-
-        private DoubleComplexNumber temp = new DoubleComplexNumber(0.0, 0.0);
-
+        
         // We access these *a lot* and I don't completely trust the compiler 
         // in any case other than having these be fields (though who knows, maybe the stack is faster)
         private int sizex, sizey;
@@ -37,9 +35,9 @@ namespace Randelbrot
             if (band == 0)
             {
                 calculated = true;
-                temp.X = this.XCoordinates[x];
-                temp.Y = this.YCoordinates[y];
-                int count = temp.CalculateCount(this.maxCount);
+                double cx = this.XCoordinates[x];
+                double cy = this.YCoordinates[y];
+                int count = MandelbrotSet.CalculateCount(cx, cy, this.maxCount);
                 band = this.bandMap.Map(count);
                 buffer.SetValue(x, y, band);
             }

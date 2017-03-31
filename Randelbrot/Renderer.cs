@@ -29,14 +29,13 @@ namespace Randelbrot
             this.XCoordinates = new double[sizex];
             this.YCoordinates = new double[sizey];
 
-            DoubleComplexNumber center = (DoubleComplexNumber)set.Center;
             double size = set.Side;
             double gapX = size / sizex;
             double gapY = size / sizey;
             double gap = Math.Min(gapX, gapY);
 
-            double x = center.X - ((gap * sizex) / 2.0);
-            double y = center.Y - ((gap * sizey) / 2.0);
+            double x = set.CX - ((gap * sizex) / 2.0);
+            double y = set.CY - ((gap * sizey) / 2.0);
             for (int i = 0; i < sizex; i++)
             {
                 this.XCoordinates[i] = x;
@@ -93,14 +92,13 @@ namespace Randelbrot
         {
             this.InitializeCoordinateMap(buffer.SizeX, buffer.SizeY, set);
 
-            DoubleComplexNumber temp = new DoubleComplexNumber(0.0, 0.0);
             for (int i = 0; i < buffer.SizeX; i++)
             {
-                temp.X = this.XCoordinates[i];
+                double cx = this.XCoordinates[i];
                 for (int j = 0; j < buffer.SizeY; j++)
                 {
-                    temp.Y = this.YCoordinates[j];
-                    int count = temp.CalculateCount(maxCount);
+                    double cy = this.YCoordinates[j];
+                    int count = MandelbrotSet.CalculateCount(cx, cy, maxCount);
                     this.SetBand(buffer, bandMap, i, j, count);
                 }
             }

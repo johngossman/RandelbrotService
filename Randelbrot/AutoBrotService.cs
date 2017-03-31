@@ -32,9 +32,9 @@ namespace Randelbrot
         private MandelbrotSet randomChild(MandelbrotSet set)
         {
             double newSide = (this.random.NextDouble() * set.Side / 4.5) + set.Side / 6;
-            double newCX = ((this.random.NextDouble() - 0.5) * set.Side / 2) + set.Center.X;
-            double newCY = ((this.random.NextDouble() - 0.5) * set.Side / 2) + set.Center.Y;
-            var newSet = new MandelbrotSet(new DoubleComplexNumber(newCX, newCY), newSide);
+            double newCX = ((this.random.NextDouble() - 0.5) * set.Side / 2) + set.CX;
+            double newCY = ((this.random.NextDouble() - 0.5) * set.Side / 2) + set.CY;
+            var newSet = new MandelbrotSet(newCX, newCY, newSide);
             return newSet;
         }
 

@@ -17,7 +17,7 @@ namespace RandelbrotFunctions
         {
             log.Info($"C# ServeImage triggered. RequestUri={req.RequestUri}");
 
-            MandelbrotSet set = new MandelbrotSet(new DoubleComplexNumber(-0.75, 0.0), 2.5);
+            MandelbrotSet set = new MandelbrotSet(-0.75, 0.0, 2.5);
             AdaptiveMandelbrotService service = new AdaptiveMandelbrotService();
 
             PixelBuffer buffer = new PixelBuffer(400, 400);
