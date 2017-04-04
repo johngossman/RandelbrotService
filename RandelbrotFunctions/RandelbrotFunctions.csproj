@@ -118,6 +118,7 @@
     <Content Include="TestFunc\function.json" />
     <Content Include="ServeImage\function.json" />
     <Content Include="host.json" />
+    <None Include="Properties\PublishProfiles\RandelbrotFunctions20170331051328 - Web Deploy.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
