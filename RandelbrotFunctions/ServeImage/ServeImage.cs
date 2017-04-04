@@ -21,7 +21,7 @@ namespace RandelbrotFunctions
 
             MandelbrotSet set = autoBrotService.PopAndGenerate();
 
-            PixelBuffer buffer = new PixelBuffer(800, 800);
+            PixelBuffer buffer = new PixelBuffer(500, 500);
             renderer.RenderToBuffer(set, buffer);
 
             var utils = new ImageUtils();
