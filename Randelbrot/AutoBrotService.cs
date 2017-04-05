@@ -24,7 +24,7 @@ namespace Randelbrot
 #if USE_PRIORITYLIST
             this.candidates = new PriorityList<MandelbrotSet>(1000, evaluator.Evaluate);
 #else
-            this.candidates = new PriorityQueue<MandelbrotSet>(10000, evaluator.Evaluate);
+            this.candidates = new PriorityQueue<MandelbrotSet>(1000, evaluator.Evaluate);
 #endif
             this.candidates.Push(startSet);
         }
@@ -40,7 +40,7 @@ namespace Randelbrot
 
         private List<MandelbrotSet> generateCandidates(MandelbrotSet set)
         {
-            var retval = new List<MandelbrotSet>(10);
+            var retval = new List<MandelbrotSet>(8);
 
   /*          var newSet = new MandelbrotSet(set.Center, set.Side / 2);
             retval.Add(newSet);
@@ -55,7 +55,7 @@ namespace Randelbrot
             newSet = new MandelbrotSet(new DoubleComplexNumber(set.Center.X + set.Side / 4, set.Center.Y + set.Side / 4), set.Side / 2);
             retval.Add(newSet);
 */
-            for (int i = 0; i < 12; i++)
+            for (int i = 0; i < 8; i++)
             {
                 retval.Add(this.randomChild(set));
             }
